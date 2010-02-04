@@ -1,0 +1,33 @@
+---
+abstract: 'Handling inherited command-line options'
+author:
+  - 'Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::More: 0.70
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.91'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Getopt-Inherited
+no_index:
+  directory:
+    - inc
+    - t
+    - xt
+requires:
+  Class::Accessor::Complex: 0
+  Data::Inherited: 0
+  Getopt::Long: 0
+  Pod::Usage: 0
+  perl: 5.8.0
+resources:
+  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Getopt-Inherited
+  homepage: http://search.cpan.org/dist/Getopt-Inherited/
+  license: http://dev.perl.org/licenses/
+  repository: git://github.com/hanekomu/getopt-inherited.git
+version: 0.01
