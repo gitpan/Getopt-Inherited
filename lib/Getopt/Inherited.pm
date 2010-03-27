@@ -1,17 +1,18 @@
-package Getopt::Inherited;
 use 5.008;
 use strict;
 use warnings;
+
+package Getopt::Inherited;
+our $VERSION = '1.100860';
+# ABSTRACT: Handling inherited command-line options
 use Getopt::Long;
 use Pod::Usage;
-our $VERSION = '0.01';
-use base qw(
+use parent qw(
   Class::Accessor::Complex
   Data::Inherited
 );
 __PACKAGE__->mk_hash_accessors(qw(opt));
 Getopt::Long::Configure('no_ignore_case');
-
 use constant GETOPT => (qw(help man logfile|log=s verbose|v+ version|V));
 use constant GETOPT_DEFAULTS => ();
 
@@ -36,11 +37,20 @@ sub do_getopt {
     $self;
 }
 1;
+
+
 __END__
+=pod
+
+=for stopwords GETOPT
 
 =head1 NAME
 
 Getopt::Inherited - Handling inherited command-line options
+
+=head1 VERSION
+
+version 1.100860
 
 =head1 SYNOPSIS
 
@@ -64,9 +74,7 @@ You can also define defaults for command-line options.
 
 =head1 METHODS
 
-=over 4
-
-=item C<GETOPT>
+=head2 GETOPT
 
 This accessor, which is accumulated across the class hierarchy using
 L<Data::Inherited>, is used to define command-line options in the same format
@@ -76,7 +84,7 @@ the following options:
     use constant GETOPT =>
         (qw(help man logfile|log=s verbose|v+ version|V));
 
-=item C<GETOPT_DEFAULTS>
+=head2 GETOPT_DEFAULTS
 
 This accessor, which is also accumulated across the class hierarchy, can be
 used to define defaults for the options given in C<GETOPT()>. For example, to
@@ -86,58 +94,59 @@ a default, you would use:
     use constant GETOPT => qw(foo=s);
     use constant GETOPT_DEFAULTS => (foo => 'my_default');
 
-=item C<opt>
+=head2 opt
 
 This is a hash accessor per L<Class::Accessor::Complex> in which the option
 hash is stored when it has been parsed and after default values have been
 applied.
 
-=item C<usage>
+=head2 usage
 
 This method is called by C<do_getopt()> after the command-line options have
 been processed with L<Getopt::Long>'s C<GetOptions>. It uses L<Pod::Usage> to
 display help information if there was either an error during processing, or if
 the C<--help> or C<--man> options have been given.
 
-=item C<do_getopt>
+=head2 do_getopt
 
 Does the actual command-line processing. It accumulates the values of
 L<GETOPT()> across the hierarchy, parses them, calls C<usage()> if necessary,
 applies L<GETOPT_DEFAULTS()>, then assigns the finished options hash to
 C<opt()>.
 
-=back
+=head1 INSTALLATION
+
+See perlmodinstall for information and options on installing Perl modules.
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
-
-=head1 INSTALLATION
-
-See perlmodinstall for information and options on installing Perl modules.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Getopt-Inherited>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see L<http://search.cpan.org/dist/Getopt-Inherited/>.
+site near you, or see
+L<http://search.cpan.org/dist/Getopt-Inherited/>.
 
-The development version lives at L<http://github.com/hanekomu/getopt-inherited/>.
+The development version lives at
+L<http://github.com/hanekomu/Getopt-Inherited/>.
 Instead of sending patches, please fork this project using the standard git
 and github infrastructure.
 
-=head1 AUTHORS
+=head1 AUTHOR
 
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+  Marcel Gruenauer <marcel@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2009 by Marcel GrE<uuml>nauer
+This software is copyright (c) 2010 by Marcel Gruenauer.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+

@@ -1,11 +1,12 @@
+
 This is the Perl distribution Getopt-Inherited.
 
 ## Installation
 
-Getopt-Inherited installation is straightforward. If your CPAN shell is
-set up, you should just be able to do
+Getopt-Inherited installation is straightforward.
+If your CPAN shell is set up, you should just be able to do
 
-    % cpan Getopt-Inherited
+    % cpan Getopt::Inherited
 
 Download it, unpack it, then build it as per the usual:
 
@@ -18,10 +19,9 @@ Then install it:
 
 ## Documentation
 
-App-Mixin-Getopt documentation is available as in POD. So you can do:
+Getopt-Inherited documentation is available as in POD.
+So you can do:
 
     % perldoc Getopt::Inherited
 
-to read the documentation online with your favorite pager.
-
-Marcel Gruenauer
+to read the documentation with your favorite pager.

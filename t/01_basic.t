@@ -4,7 +4,7 @@ use strict;
 use Test::More tests => 2;
 
 package Foo;
-use base 'Getopt::Inherited';
+use parent 'Getopt::Inherited';
 use constant GETOPT => qw(myopt1=s);
 use constant GETOPT_DEFAULTS => (myopt1 => 'myval1');
 
